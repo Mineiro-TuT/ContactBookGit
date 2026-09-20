@@ -101,7 +101,14 @@ public class ContactBook {
     }
 
     public boolean checkRepeat(){
-
+        for(int i=0; i<counter-1;i++){
+            for(int j=i+1;j<counter;j++){
+                if(contacts[j].getPhone()==contacts[i].getPhone()){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private int searchIndexNumber(int number) {
