@@ -95,6 +95,11 @@ public class ContactBook {
         return searchIndexNumber(number) >= 0;
     }
 
+    //Pre: hasNumber()
+    public String getName(int number) {
+        return contacts[searchIndexNumber(number)].getName();
+    }
+
     private int searchIndexNumber(int number) {
         int i = 0;
         int result = -1;
