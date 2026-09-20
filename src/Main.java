@@ -1,8 +1,6 @@
-import contactBook.Contact;
-import contactBook.ContactBook;
+import contactBook.*;
 
 import java.util.Scanner;
-
 
 public class Main {
     //Constantes que definem os comandos
@@ -13,11 +11,13 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GET_NUMBER     = "GN";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
+    public static final String NUMBER_NOT_EXIST = "Phone number does not exist.";
     public static final String CONTACT_ADDED = "contactBook.Contact added.";
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
@@ -43,6 +43,9 @@ public class Main {
                     break;
                 case GET_EMAIL:
                     getEmail(in,cBook);
+                    break;
+                case GET_NUMBER:
+                    getNumber(in,cBook);
                     break;
                 case SET_PHONE:
                     setPhone(in,cBook);
@@ -111,6 +114,15 @@ public class Main {
             System.out.println(cBook.getEmail(name));
         }
         else System.out.println(NAME_NOT_EXIST);
+    }
+
+    private static void getNumber(Scanner in, ContactBook cBook) {
+        int number;
+        number = in.nextInt();
+        if(cBook.hasNumber(number)) {
+            System.out.println(cBook.getName(number));
+        }
+        else System.out.println(NUMBER_NOT_EXIST);
     }
 
     private static void setPhone(Scanner in, ContactBook cBook) {
