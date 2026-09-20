@@ -100,6 +100,10 @@ public class ContactBook {
         return contacts[searchIndexNumber(number)].getName();
     }
 
+    public boolean checkRepeat(){
+
+    }
+
     private int searchIndexNumber(int number) {
         int i = 0;
         int result = -1;
